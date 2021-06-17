@@ -1,3 +1,10 @@
+/**
+ * 
+ * @param { Number } min the smallest number you would accept getting back
+ * @param { Number } max the largest number you would accept getting back
+ * @returns a number between (inclusively) min and max
+ */
+
 const randBetween = (min, max) => {
     //get the diff
     const diff = (max - min) + 1;
@@ -6,19 +13,18 @@ const randBetween = (min, max) => {
     //add the min back to get a rand num between (inclusive) min and max
     return randNum + min;
 }
+
+/** get a random (valid) index back for a given array*/
 const randIndex = array => randBetween(0, array.length - 1);
 
-const choice = items => {
-    return items[randIndex(items)];
-}
+/** get a random item from the given array back */
+const choice = items => items[randIndex(items)];
 
+/** remove an item from an array returns the item (if found) */
 const remove = (array, item) => {
-    console.log(item);
     const idx = array.findIndex(element => element === item);
-    console.log(idx);
-    array.splice(idx, 1);
-    console.log(array)
-    return item;
+    if (idx === -1) return undefined;
+    else return array.splice(idx, 1);
 }
 
 export { choice, remove }
