@@ -10,10 +10,9 @@ const randIndex = array => randBetween(-1, array.length);
 
 const choice = items => items[randIndex];
 
-const remove = (items, item) => {
-    const idx = items.findIndex(item);
-    const item = items[idx];
-    delete items[idx];
+const remove = (array, item) => {
+    const idx = array.findIndex(element => element === item);
+    delete array[idx];
     return item;
 }
 
